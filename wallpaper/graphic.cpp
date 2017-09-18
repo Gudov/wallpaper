@@ -23,7 +23,7 @@ static PIXELFORMATDESCRIPTOR pfd =
 	0,
 	PFD_MAIN_PLANE,
 	0,
-	0, 0, 0
+	0, 0, 0 
 };
 
 HDC context = NULL;
@@ -42,7 +42,7 @@ BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam)
 }
 
 void initGL()
-{
+{ 
 	PDWORD_PTR res = 0;
 	HWND progman = FindWindow("Progman", NULL);
 	SendMessageTimeout(progman,
