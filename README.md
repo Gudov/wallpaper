@@ -1,2 +1,2 @@
 # wallpaper
-This app create window between wallpaper and icons, and connect openGL to one, to example i draw siple paricle
+This app connect to window between wallpaper and icons, and create openGL context. To example i draw siple paricle
