@@ -83,6 +83,11 @@ void initGL()
 	glColor3f(1, 1, 1);
 	glRectf(-25, -25, 25, 25);
 	glPointSize(2);
+	glLineWidth(1.5);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_BLEND);
+	glEnable(GL_LINE_SMOOTH);
+	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
 	glBegin(GL_POINTS);
 	glVertex2f(0, 0);
 	glEnd();

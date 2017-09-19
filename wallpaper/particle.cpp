@@ -14,8 +14,8 @@ namespace PS
 	unsigned int particleLimit = 0;
 	float lifeTime = 1000;
 
-	float distN = 250;
-	float F = 0.025;
+	float distN = 400;
+	float F = 0.1;
 }
 
 
@@ -47,9 +47,10 @@ void PS::update(float delta)
 			PS::allParticle[i].speed.x += NDist * toCenterN.x * F;
 			PS::allParticle[i].speed.y += NDist * toCenterN.y * F;
 
-			glColor3f(	PS::allParticle[i].color.x,
+			glColor4f(	PS::allParticle[i].color.x,
 						PS::allParticle[i].color.y,
-						PS::allParticle[i].color.z);
+						PS::allParticle[i].color.z,
+						PS::allParticle[i].color.a);
 
 			glVertex2f(	PS::allParticle[i].pos.x,
 						PS::allParticle[i].pos.y);
@@ -79,7 +80,7 @@ void PS::update(float delta)
 	SwapBuffers(context);
 }
 
-void PS::add(Vector2f pos, Vector2f impulse, Vector3f color, float lifeTime = 0)
+void PS::add(Vector2f pos, Vector2f impulse, Vector4f color, float lifeTime = 0)
 {
 	for (int i = 0; i < PS::particleLimit; i++)
 	{

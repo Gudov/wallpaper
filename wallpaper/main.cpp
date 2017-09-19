@@ -8,7 +8,7 @@
 int main()
 {
 	initGL();
-	PS::init(1000000);
+	PS::init(50000);
 
 	while (true)
 	{
@@ -20,22 +20,18 @@ int main()
 		{
 			int r = rand() % 200 + 1;
 
-			Vector2f pos = { 250,0 };
-			pos.x += ((float)(100 - r) / 100.f) * 15;
-			pos.y += ((float)(100 - (rand() % 200 + 1)) / 100.f) * 5;
+			Vector2f pos = { 400,0 };
 
-			Vector2f impulse = { 0,10 };
-			impulse.x += ((float)(100 - r) / 100.f) * -2;
+			Vector2f impulse = { 0,15 };
+			r = rand() % 200 + 1;
+			impulse.y += ((float)(100 - r) / 100.f) * 10;
+			r = rand() % 200 + 1;
+			impulse.x += ((float)(100 - r) / 100.f) * 15;
 
-			//float colorM = (((float)(200 - r)) / 400) + 0.5;
-			float colorM = 1;
-			Vector3f color = { 0.15 * colorM,0.25 * colorM,1 * colorM };
-
-			if (r > 180)
-			{
-				//color = { 1,0,0 };
-				//impulse.y *= -1;
-			}
+			float colorM = ((float)(100 - r) / 100.f);
+			colorM = (colorM > 0) ? (1 - colorM) : (colorM + 1);
+			colorM = colorM * colorM;
+			Vector4f color = { 0.15, 0.25, 1, 1 * colorM };
 
 			PS::add(pos,
 				impulse,
